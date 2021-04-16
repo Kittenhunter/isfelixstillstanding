@@ -2,9 +2,11 @@
   <div>
     <h2>Is felix still standing?</h2>
     <div class="status-wrapper">
-      <div class="status nope">
-        Nope, currently not.
-        <div class="nope-sidenote">Disappointing.</div>
+      <div [ngClass]="{'status': true, 'nope': status == 'nope', 'jep': status == 'jep'}">
+        <div *ngIf="status == 'nope'">Nope, currently not.</div>
+        <div *ngIf="status == 'nope'" class="nope-sidenote">Disappointing.</div>
+
+        <div *ngIf="status == 'jep'">Yes, very good!</div>
       </div>
     </div>
   </div>
